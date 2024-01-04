@@ -1,16 +1,8 @@
-# This is a sample Python script.
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Importing an ESRI Shapefile and plotting it using GeoPandas
+districts = gpd.read_file(r'.\Shapefiles\districts.shp')
+districts.plot(cmap = 'hsv', edgecolor = 'black', column = 'district')
+plt.title('Districts Plot')
+plt.show()
