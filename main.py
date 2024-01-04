@@ -42,3 +42,14 @@ districts_in_aoi = gpd.overlay(districts, area_of_interest, how = 'intersection'
 districts_in_aoi.plot(edgecolor = 'red')
 plt.title('Intersected Layers Plot')
 plt.show()
+
+# Calculating the areas of the intersected layer
+districts_in_aoi['area'] = districts_in_aoi.area/1000000
+# Exporting GeoPandas GeoDataFrames into an ESRI Shapefile
+districts_in_aoi.to_file('districts_within_aoi.shp', driver = "ESRI Shapefile")
+
+# Importing an ESRI Shapefile and plotting it using GeoPandas
+districts = gpd.read_file(r'.\districts_within_aoi.shp')
+districts.plot(cmap = 'hsv', edgecolor = 'black', column = 'district')
+plt.title('Districts With in AOI Plot')
+plt.show()
