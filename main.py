@@ -27,3 +27,12 @@ area_of_interest.plot(ax = ax, color = 'none', edgecolor = 'black')
 atms.plot(ax = ax, color = 'black', markersize = 14)
 plt.suptitle('Multiple Layers Plot')
 plt.show()
+
+# Reprojecting GeoPandas GeoDataFrames
+fig, ax = plt.subplots(figsize = (8,6))
+districts = districts.to_crs(epsg = 32629)
+districts.plot(ax = ax, cmap = 'hsv', edgecolor = 'black', column = 'district')
+area_of_interest = area_of_interest.to_crs(epsg = 32629)
+area_of_interest.plot(ax = ax, color = 'none', edgecolor = 'black')
+plt.title('Reprojected GeoDataFrames Plot')
+plt.show()
