@@ -19,3 +19,11 @@ districts.plot(ax = ax1, cmap = 'hsv', edgecolor = 'black', column = 'district')
 area_of_interest.plot(ax = ax2, color = 'green')
 plt.suptitle('Districts and Area of Interest Plot')
 plt.show()
+
+# Plotting multiple layers
+fig, ax = plt.subplots(figsize = (10,8))
+districts.plot(ax = ax, cmap = 'hsv', edgecolor = 'black', column = 'district')
+area_of_interest.plot(ax = ax, color = 'none', edgecolor = 'black')
+atms.plot(ax = ax, color = 'black', markersize = 14)
+plt.suptitle('Multiple Layers Plot')
+plt.show()
