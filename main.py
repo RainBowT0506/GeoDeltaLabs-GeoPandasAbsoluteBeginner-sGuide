@@ -36,3 +36,9 @@ area_of_interest = area_of_interest.to_crs(epsg = 32629)
 area_of_interest.plot(ax = ax, color = 'none', edgecolor = 'black')
 plt.title('Reprojected GeoDataFrames Plot')
 plt.show()
+
+# Intersecting Layers
+districts_in_aoi = gpd.overlay(districts, area_of_interest, how = 'intersection')
+districts_in_aoi.plot(edgecolor = 'red')
+plt.title('Intersected Layers Plot')
+plt.show()
